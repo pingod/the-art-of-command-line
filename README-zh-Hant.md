@@ -1,5 +1,5 @@
 🌍
-*[Čeština](README-cs.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
+*[Čeština](README-cs.md) ∙ [Deutsch](README-de.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Indonesia](README-id.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Română](README-ro.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 # 命令列的藝術
 
@@ -11,8 +11,9 @@
 - [檔案及資料處理](#檔案及資料處理)
 - [系統偵錯](#系統偵錯)
 - [單行指令碼](#單行指令碼)
-- [冷門但有用](#冷門但有用)
+- [冷門但有用的指令](#冷門但有用的指令)
 - [僅限 OS X 系統](#僅限-os-x-系統)
+- [僅限 Windows 系統](#僅限-windows-系统)
 - [更多資源](#更多資源)
 - [免責聲明](#免責聲明)
 - [授權條款](#授權條款)
@@ -33,7 +34,7 @@
 涵蓋範圍：
 
 - 這篇文章對剛接觸命令列的新手以及具有命令列使用經驗的人都有用處。本文致力於做到*覆蓋面廣*（盡量包括一切重要的內容），*具體*（給出最常見的具體的例子）以及*簡潔*（避免不必要的，或是可以在其他地方輕鬆查到的細枝末節）。每個技巧都是在特定情境下必備的，或是能顯著減省時間的。
-- 本文為 Linux 所寫，除​​了 [僅限OS X 系統](#僅限-os-x-系統) 章節外，其它章節中的大部分內容都適用於其它 Unix 系統或 MacOS 系統，甚至 Cygwin。
+- 本文為 Linux 所寫，除了 [僅限OS X 系統](#僅限-os-x-系統) 和 [僅限 Windows 系統](#僅限-windows-系统) 章節外，其它章節中的大部分內容都適用於其它 Unix 系統或 MacOS 系統，甚至 Cygwin。
 - 本文關注於互動式 Bash，儘管很多技巧也適用於其他 shell 或 Bash 指令碼。
 - 本文包括了“標準的” Unix 命令和需要安裝特定套件的命令，只要它們足夠重要。
 
@@ -72,7 +73,7 @@
 
 - 在 Bash 中，可以使用 **Tab** 自動補全參數，使用 **ctrl-r** 搜尋命令列歷史（在按下之後，鍵入便可以搜尋，重複按下**ctrl-r**會在更多匹配中迴圈，按下 **Enter** 會執行找到的命令，按下右方向鍵會將結果放入當前行中，使你可以進行編輯）。
 
-- 在 Bash 中，可以使用 **ctrl-w** 刪除你鍵入的最後一個單詞，使用 **ctrl-u** 刪除整行，使用 **alt-b** 和 **alt-f**以單詞為單位移動游標，​​使用 **ctrl-a** 將游標移至行首，使用 **ctrl-e** 將游標移至行尾，使用 **ctrl-k** 刪除游標至行尾的所有內容，使用 **ctrl-l** 清屏。鍵入`man readline` 檢視Bash 中的預設快捷鍵，內容很多。例如 **alt-.** 迴圈地移向前一個參數，以及 **alt-*** 展開通配符。
+- 在 Bash 中，可以使用 **ctrl-w** 刪除你鍵入的最後一個單詞，使用 **ctrl-u** 刪除當前游標所在位置之前的內容，使用 **alt-b** 和 **alt-f**以單詞為單位移動游標，​​使用 **ctrl-a** 將游標移至行首，使用 **ctrl-e** 將游標移至行尾，使用 **ctrl-k** 刪除游標至行尾的所有內容，使用 **ctrl-l** 清屏。鍵入`man readline` 檢視 Bash 中的預設快捷鍵，內容很多。例如 **alt-.** 迴圈地移向前一個參數，以及 **alt-*** 展開通配符。
 
 - 你喜歡的話，可以鍵入`set -o vi` 來使用vi 風格的快捷鍵，而`set -o emacs` 可以把它改回來。
 
@@ -82,7 +83,7 @@
 
 - 回到上一個工作路徑：`cd -`
 
-- 如果你輸入命令的時候改變了主意，按下 **alt-#** 來在行首新增`#`，或者依次按下 **ctrl-a**， **#**， **enter **。這樣做的話，之後你可以很方便的利用命令列歷史回到你剛才輸入到一半的命令。
+- 如果你輸入命令的時候改變了主意，按下 **alt-#** 來在行首新增`#`，或者依次按下 **ctrl-a**， **#**， **enter**。這樣做的話，之後你可以很方便的利用命令列歷史回到你剛才輸入到一半的命令。
 
 - 使用 `xargs` （ 或 `parallel`），他們非常強大。注意到你可以控制每行參數的個數（`-L`）和最大並行數（`-P`）。如果你不確定它們是否會按你想的那樣工作，先使用`xargs echo` 檢視一下。此外，使用 `-I{}` 會很方便。例如：
 ```bash
@@ -226,11 +227,11 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 標準的原始碼對比及合併工具是`diff` 和`patch`。使用 `diffstat` 檢視變更總覽資料。注意到 `diff -r` 對整個資料夾有效。使用`diff -r tree1 tree2 | diffstat` 檢視變更總覽資料。
 
-- 對於二進製檔案，使用`hd` 使其以十六進位制顯示以及使用`bvi` 來編輯二進位制。
+- 對於二進制檔案，使用`hd` 使其以十六進位制顯示以及使用`bvi` 來編輯二進位制。
 
-- 同樣對於二進製檔案，`strings`（包括`grep` 等等）允許你查詢一些文字。
+- 同樣對於二進制檔案，`strings`（包括`grep` 等等）允許你查詢一些文字。
 
-- 二進製檔案對比（Delta 壓縮），使用`xdelta3`。
+- 二進制檔案對比（Delta 壓縮），使用`xdelta3`。
 
 - 使用 `iconv` 更改文字編碼。而更高階的用法，可以使用`uconv`，它支援一些高階的Unicode 功能。例如，這條命令將所有母音字母轉為小寫並移除了：
 ```sh
@@ -258,15 +259,15 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Java 系統偵錯則是一件截然不同的事，一個可以用於 Oracle 的 JVM 或其他 JVM 上的偵錯的技巧是你可以運行`kill -3 <pid>` 同時一個完整的棧軌跡和堆概述（包括 GC 的細節）會被儲存到標準輸出/日誌檔案。 JDK 中的`jps`，`jstat`，`jstack`，`jmap` 很有用。 [SJK tools](https://github.com/aragozin/jvm-tools) 更高階.
 
-- 使用`mtr` ​​去跟蹤路由，用於確定網路問題。
+- 使用[`mtr`](http://www.bitwizard.nl/mtr/) ​​去跟蹤路由，用於確定網路問題。
 
-- 用`ncdu` 來檢視磁碟使用情況，它比常用的命令，如`du -sh *`，更節省時間。
+- 用[`ncdu`](https://dev.yorhel.nl/ncdu) 來檢視磁碟使用情況，它比常用的命令，如`du -sh *`，更節省時間。
 
-- 查詢正在使用頻寬的 socket 連線或程序，使用`iftop` 或`nethogs`。
+- 查詢正在使用頻寬的 socket 連線或程序，使用[`iftop`](http://www.ex-parrot.com/~pdw/iftop/) 或[`nethogs`](https://github.com/raboof/nethogs)。
 
 - `ab` 工具（內建於Apache）可以簡單粗暴地檢查 web 伺服器的效能。對於更複雜的負載測試，使用`siege`。
 
-- `wireshark`，`tshark` 和`ngrep` 可用於復雜的網路偵錯。
+- [`wireshark`](https://wireshark.org/)，[`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) 和[`ngrep`](http://ngrep.sourceforge.net/) 可用於復雜的網路偵錯。
 
 - 瞭解 `strace` 和 `ltrace`。這倆工具在你的程式運行失敗、掛起甚至崩潰，而你卻不知道為什麼或你想對效能有個總體的認識的時候是非常有用的。注意 profile 參數（`-c`）和附加到一個運行的程序參數（`-p`）。
 
@@ -276,7 +277,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 學會使用 `/proc`。它在偵錯正在出現的問題的時候有時會效果驚人。比如：`/proc/cpuinfo`，`/proc/meminfo`，`/proc/cmdline`，`/proc/xxx/cwd`，`/proc/xxx/exe`，`/proc/xxx/fd/` ，`/proc/xxx/smaps`（這裡的`xxx` 表示程序的 id 或 pid）。
 
-- 當偵錯一些之前出現的問題的時候，`sar` 非常有用。它展示了 cpu、記憶體以及網路等的歷史資料。
+- 當偵錯一些之前出現的問題的時候，[`sar`](http://sebastien.godard.pagesperso-orange.fr/) 非常有用。它展示了 cpu、記憶體以及網路等的歷史資料。
 
 - 關於更深層次的系統分析以及效能分析，看看`stap`（[SystemTap](https://sourceware.org/systemtap/wiki)），[`perf`](http://en.wikipedia.org /wiki/Perf_(Linux))，以及[`sysdig`](https://github.com/draios/sysdig)。
 
@@ -421,15 +422,15 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `strace`：系統呼叫偵錯
 
-- `mtr`：更好的網路偵錯跟蹤工具
+- [`mtr`](http://www.bitwizard.nl/mtr/)：更好的網路偵錯跟蹤工具
 
 - `cssh`：視覺化的並發 shell
 
 - `rsync`：通過ssh 或本地檔案系統同步檔案和資料夾
 
-- `wireshark` 和`tshark`：抓包和網路偵錯工具
+- [`wireshark`](https://wireshark.org/) 和[`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html)：抓包和網路偵錯工具
 
-- `ngrep`：網路層的 grep
+- [`ngrep`](http://ngrep.sourceforge.net/)：網路層的 grep
 
 - `host` 和 `dig`：DNS 查詢
 
@@ -453,9 +454,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `id`：使用者/組 ID 資訊
 
-- `sar`：系統歷史資料
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/)：系統歷史資料
 
-- `iftop` 或`nethogs`：套接字及程序的網路利用
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) 或[`nethogs`](https://github.com/raboof/nethogs)：套接字及程序的網路利用
 
 - `ss`：socket 資料
 
@@ -492,6 +493,23 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - 用 `sw_vers` 獲取 MacOS 的版本資訊。
 
 
+## 僅限 Windows 系统
+
+- 要在 Microsoft Windows 中使用 Unix shell，可以安装 [Cygwin](https://cygwin.com/)。本文件中介绍的大多數内容都將適用。
+
+- 透過 Cygwin 的套件管理器來安裝額外的 Unix 指令。
+
+- 使用 `mintty` 作為你的命令列視窗。
+
+- 要訪問 Windows 剪貼簿，可以透過 `/dev/clipboard`。
+
+- 執行 `cygstart` 以透過預設程式打開一個文件。
+
+- 要訪問 Windows 登錄檔，可以使用 `regtool`。
+
+- 注意 Windows 磁碟機路徑 `C:\` 在 Cygwin 中用 `/cygdrive/c` 代表，而 Cygwin 的 `/` 在 Windows 中顯示在 `C:\cygwin`。要轉換 Cygwin 和 Windows 風格的路徑可以用 `cygpath`。這在需要使用 Windows 指令的脚本裡很有用。
+
+- 學會使用 `wmic`，你就可以從命令列執行大多數 Windows 系統管理任務，並編成腳本。
 
 ## 更多資源
 
@@ -504,11 +522,11 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 ## 免責聲明
 
-除去特別微小的任務，編寫程式碼是出於方便閱讀的目的。能力往往伴隨著責任。你*可以* 在 Bash 中做一些事並不意味著你應該去做！ ;)
+除去特別微小的任務，編寫程式碼是出於方便閱讀的目的。能力往往伴隨著責任。你 *可以* 在 Bash 中做一些事並不意味著你應該去做！ ;)
 
 
-##授權條款
+## 授權條款
 
-[！[創作共用License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
+[![創作共用License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
-本文使用授權協議[知識共享署名 - 相同方式共享4.0國際許可（http://creativecommons.org/licenses/by-sa/4.0/）。
+本文使用授權協議 [知識共享署名 - 相同方式共享 4.0 國際許可](http://creativecommons.org/licenses/by-sa/4.0/)。

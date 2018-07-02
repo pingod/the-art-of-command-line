@@ -1,5 +1,5 @@
 🌍
-*[Čeština](README-cs.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
+*[Čeština](README-cs.md) ∙ [Deutsch](README-de.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Indonesia](README-id.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Română](README-ro.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 # The Art of Command Line (Traduzione Italiana)
 
@@ -47,7 +47,7 @@ Note:
 
 - Impara le basi di Bash. Usa `man bash` e cerca almeno di scorrere velocemente l'intero scritto. Non è troppo lungo e neanche difficile da seguire. Altre shell possono andare bene, ma Bash è molto potente e sempre disponibile (impararne una sola tra zsh, fish e così via, per quanto ti possa tentare, ti darà problemi a lungo termine, lavorando su altre piattaforme).
 
-- Impara ad usare bene almeno un editor di testo. Idealmente, potresti usare Vim (`vi`), con il quale non c'è praticamente competizione per questo genere di cose (si, anche se volessi usare Emacs, oppure un altro di quei grossi IDE, o magari l'ennesimo ultimo editor ultramoderno ed hipster).
+- Impara ad usare bene almeno un editor di testo. Idealmente, potresti usare Vim (`vi`), con il quale non c'è praticamente competizione per questo genere di cose (sì, anche se volessi usare Emacs, oppure un altro di quei grossi IDE, o magari l'ennesimo ultimo editor ultramoderno ed hipster).
 
 - Impara a leggere la documentazione usando `man` (per i più curiosi, `man man` elenca le varie sezioni. Ad esempio, 1 indica i comandi "regolari", 5 per file/convenzioni, 8 per l'amministrazione). Trova le pagine tramite `apropos`. Ricorda inoltre che alcuni comandi non sono degli eseguibili, ma dei "builtin" di Bash. Usa `help -d` in caso di necessità.
 
@@ -59,7 +59,7 @@ Note:
 
 - Impara ad usare `ssh` e le basi della passwordless authentication, tramite `ssh-agent`, `ssh-add`, e così via.
 
-- Gestione base dei file: `ls` e `ls -l` (nello specifico, impara cosa indica ognuna delle colonne che escono fuori da `ls -l`), `less`, `head`, `tail` e `tail -f` (or even better, `less +F`), `ln` e `ln -s` (impara le differenze ed i vantaggi nell'uso di hard link o soft link), `chown`, `chmod`, `du` (per una panoramica veloce, usa: `du -hs *`). Per la gestione del filesystem, guardati `df`, `mount`, `fdisk`, `mkfs`, `lsblk`. Impara anche cos'è un inode (`ls -i` or `df -i`).
+- Gestione base dei file: `ls` e `ls -l` (nello specifico, impara cosa indica ognuna delle colonne che escono fuori da `ls -l`), `less`, `head`, `tail` e `tail -f` (o, anche meglio, `less +F`), `ln` e `ln -s` (impara le differenze ed i vantaggi nell'uso di hard link o soft link), `chown`, `chmod`, `du` (per una panoramica veloce, usa: `du -hs *`). Per la gestione del filesystem, guardati `df`, `mount`, `fdisk`, `mkfs`, `lsblk`. Impara anche cos'è un inode (`ls -i` or `df -i`).
 
 - Gestione base delle reti: `ip` or `ifconfig`, `dig`.
 
@@ -270,15 +270,15 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Il system debugging con Java è tutta un'altra cosa. Uno dei trucchi più semplici sulla JVM Oracle (ed anche altre) è che all'esecuzione di `kill -3 <pid>` verrà messo in log un trace full stack (inclusi molti dettagli sulla garbage collection). Anche `jps`, `jstat`, `jstack` e `jmap` del JDK sono molto utili. Ci sono poi i vari [SJK tools](https://github.com/aragozin/jvm-tools), più avanzati.
 
-- Usa `mtr` per rilevare problemi di rete. Molto meglio di traceroute.
+- Usa [`mtr`](http://www.bitwizard.nl/mtr/) per rilevare problemi di rete. Molto meglio di traceroute.
 
-- Per capire perché un disco viene visto pieno, `ncdu` ti evita perdite di tempo rispetto al più comune `du -sh *`.
+- Per capire perché un disco viene visto pieno, [`ncdu`](https://dev.yorhel.nl/ncdu) ti evita perdite di tempo rispetto al più comune `du -sh *`.
 
-- Per capire quale socket o processo sta usando troppa banda prova `iftop` o `nethogs`.
+- Per capire quale socket o processo sta usando troppa banda prova [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) o [`nethogs`](https://github.com/raboof/nethogs).
 
 - `ab` (incluso in Apache) è ottimo per un test di carico veloce di un webserver. Per test di carico più avanzati, prova anche `siege`.
 
-- Per un debug di rete più avanzato, dai uno sguardo a `wireshark`, `tshark` o `ngrep`.
+- Per un debug di rete più avanzato, dai uno sguardo a [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) o [`ngrep`](http://ngrep.sourceforge.net/).
 
 - Impara qualcosa di più su `strace` e `ltrace`. Possono essere molto utili quando un programma crasha, o magari rimane in blocco e tu non capisci perché. Degne di nota le opzioni di profiling (`-c`), e la possibilità di agganciare un processo in esecuzione (`-p`).
 
@@ -288,7 +288,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Usa `/proc`. Fantastico quando devi fare un live debug in caso di problemi. Esempi: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (dove `xxx` è il nome del processo o il suo pid).
 
-- Quando vuoi debuggare qualcosa che è andato storto in passato, `sar` può essere molto utile. Permette di controllare uno storico delle statistiche di CPU, memoria, rete e così via.
+- Quando vuoi debuggare qualcosa che è andato storto in passato, [`sar`](http://sebastien.godard.pagesperso-orange.fr/) può essere molto utile. Permette di controllare uno storico delle statistiche di CPU, memoria, rete e così via.
 
 - Usa `stap` per un'analisi più approfondita del sistema in termini di performance ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux)), e [`sysdig`](https://github.com/draios/sysdig).
 
@@ -443,15 +443,15 @@ Qualche esempio di combinazione di più comandi comandi:
 
 - `strace`: debug delle chiamate di sistema.
 
-- `mtr`: un traceroute migliore per il debug di rete.
+- [`mtr`](http://www.bitwizard.nl/mtr/): un traceroute migliore per il debug di rete.
 
 - `cssh`: shell visuale concorrente.
 
 - `rsync`: sincronizza file e cartelle tramite SSH oppure in locale.
 
-- `wireshark` e `tshark`: packet capturing e debug di rete.
+- [`wireshark`](https://wireshark.org/) e [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): packet capturing e debug di rete.
 
-- `ngrep`: come grep... ma per il traffico di rete.
+- [`ngrep`](http://ngrep.sourceforge.net/): come grep... ma per il traffico di rete.
 
 - `host` e `dig`: DNS lookup.
 
@@ -475,9 +475,9 @@ Qualche esempio di combinazione di più comandi comandi:
 
 - `id`: user/group identity info.
 
-- `sar`: cronologia di alcune statistiche del sistema.
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): cronologia di alcune statistiche del sistema.
 
-- `iftop` o `nethogs`: uso della rete da parte di socket e processi.
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) o [`nethogs`](https://github.com/raboof/nethogs): uso della rete da parte di socket e processi.
 
 - `ss`: statistiche sui socket.
 

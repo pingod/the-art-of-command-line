@@ -1,5 +1,5 @@
 🌍
-*[Čeština](README-cs.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
+*[Čeština](README-cs.md) ∙ [Deutsch](README-de.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Indonesia](README-id.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Română](README-ro.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 # Umění příkazové řádky
 
@@ -44,7 +44,7 @@ Poznámky:
 - Použijte [Explainshell](http://explainshell.com/) pro užitečné vysvětlení co příkazy, možnosti, roury a jiné dělají.
 
 
-## Zaklady
+## Základy
 
 - Naučte se základy Bashe. Vlastně, napište `man bash` a alespoň si to proleťte; je to celkem jednoduché a ne tak dlouhé. Jiné shelly mohou být dobré, ale Bash je mocný a vždy dostupný (znalost *pouze* zsh, fish a jiných ačkoli lákavá na vlastním notebooku omezuje v mnoha situacích, jako například při použití existujících serverů).
 
@@ -69,7 +69,7 @@ Poznámky:
 - Naučte se používat `apt-get`, `yum`, `dnf` nebo `pacman` (podle vaší distribuce) k hledání a instalaci balíků. A ujistěte se, že máte `pip` k instalace Pythonových terminálových nástrojů (některé je nejjednodušší nainstalovat pomocí `pip`).
 
 
-## Kazdodenni pouziti
+## Každodenní použití
 
 - V Bashi používejte **Tab** k dokončení argumentů nebo vylistování všech dostupných příkazů a **ctrl-r** k vyhledávání v historii příkazů (po stisknutí pište pro hledání a poté mačkejte opakovaně **ctrl-r** k procházení více shod, **Enter** k provedení nalezeného příkazu nebo šipku vpravo pro vložení výsledku hledání do terminálu a následnou editaci).
 
@@ -170,7 +170,7 @@ Příklady:
 - Pro spuštění příkazu s právy použijte `sudo` (pro roota) nebo `sudo -u` (pro jiného uživatele). Používejte `su` nebo `sudo bash` pokud chcete aby shell běžel skutečně pod daným uživatelem. Použitím `su -` simulujte čerstvé přihlášení jako root nebo jiný uživatel.
 
 
-## Zpracovani souboru a dat
+## Zpracovaní souboru a dat
 
 - K nalezení souboru podle jména v pracovním adresáři: `find . -iname '*something*'` (nebo podobně). K nalezení souboru podle jména kdekoliv na disku, použijte `locate jmeno` (pamatujte, že `updatedb` nemuselo nutně zaindexovat nedávno vytvořené soubory).
 
@@ -248,9 +248,9 @@ Příklady:
 - Použijte `zless`, `zmore`, `zcat`, a `zgrep` k operacím s komprimovanými soubory.
 
 
-## Ladeni systemu
+## Ladění systému
 
-- Pro webové ladění jsou vhodn0 `curl` a `curl /I` nebo jejich `wget` ekvivalenty nebo více moderní [`httpie`](https://github.com/jkbrzt/httpie).
+- Pro webové ladění jsou vhodné `curl` a `curl /I` nebo jejich `wget` ekvivalenty nebo více moderní [`httpie`](https://github.com/jkbrzt/httpie).
 
 - Pro zjištění současného procesorového/diskového stavu, klasické nástroje jako `top` (nebo lépe `htop`). Použijte `iostat -mxz 15` pro základní CPU a detailní diskové stavy pro každý diskový oddíl a výkonostní statistiky.
 
@@ -262,15 +262,15 @@ Příklady:
 
 - Ladění Javy je odlišný šálek čaje, ale jednoduchý trik na Javu od Oraclu a některé jiné JVM je, že stále můžete použít `kill -3 <pid>` a výpis zásobníku a haldy (včetně obecnějších detailů z **garbage collectoru**, které mohou být nesmírně informativní) bude zapsán do stderr/logs. Nástroje JDK jako `jps`, `jstat`, `jstack` a `jmap` jsou také užitečné, avšak [SJK tools](https://github.com/aragozin/jvm-tools)  jsou více pokročilé.
 
-- Použijte `mtr` jako lepší `traceroute` pro identifikování potíží se sítí.
+- Použijte [`mtr`](http://www.bitwizard.nl/mtr/) jako lepší `traceroute` pro identifikování potíží se sítí.
 
-- Při zjištování proč je disk plný, `ncdu` šetří čas oproti obvyklým příkazům jako `du /sh *`.
+- Při zjištování proč je disk plný, [`ncdu`](https://dev.yorhel.nl/ncdu) šetří čas oproti obvyklým příkazům jako `du /sh *`.
 
-- Ke zjištění, který socket nebo proces zahlcuje pásmo, zkuste `iftop` nebo `nethogs`.
+- Ke zjištění, který socket nebo proces zahlcuje pásmo, zkuste [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) nebo [`nethogs`](https://github.com/raboof/nethogs).
 
 - Nástroj `ab` (přibalený k Apachi) je užitečný pro rychlé a hrubé zkontrolování výkonosti webového serveru. Komplexnější měření umožňuje `siege`.
 
-- Pro důslednější síťové ladění, `wireshark`, `tshark` nebo `ngrep` jsou to pravé.
+- Pro důslednější síťové ladění, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) nebo [`ngrep`](http://ngrep.sourceforge.net/) jsou to pravé.
 
 - Nezapomínejte na `strace` a `ltrace`. Mohou být nápomocné zejména pokud některý program selhává, zasekává se nebo padá a nevíte proč nebo pokud chcete mít obecnou představu o výkonu. Myslete na přepínač profilingu (`-c`) a schopnost připnout se k běžícímu procesu (`-p`).
 
@@ -280,7 +280,7 @@ Příklady:
 
 - Používejte `/proc`. Je úžasně nápomocný v okamžicích, kdy ladíte živé problémy. Příklady: /proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (kde `xxx` je id nebo pid procesu.).
 
-- Když zjišťujete proč se něco v minulosti pokazilo, `sar` může být nedocenitelný. Ukazuje historické statistiky CPU, paměti, sítě, atd.
+- Když zjišťujete proč se něco v minulosti pokazilo, [`sar`](http://sebastien.godard.pagesperso-orange.fr/) může být nedocenitelný. Ukazuje historické statistiky CPU, paměti, sítě, atd.
 
 - Pro hlubší systémovou a výkonostní analýzu se podívejte na `stap`([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux)), a [`sysdig`](https://github.com/draios/sysdig).
 
@@ -289,7 +289,7 @@ Příklady:
 - Použijte `dmesg` kdykoli se něco chová neočekávaně (může jít o hardwarový nebo driverový problém).
 
 
-## Jednoradkove prikazy
+## Jednořádkové příkazy
 
 Pár příkladů na spojování příkazů:
 
@@ -330,7 +330,7 @@ Pár příkladů na spojování příkazů:
       }
 ```
 
-## Neobvykle ale uzitecne
+## Neobvyklé ale užitečné
 
 - `expr`: provede aritmetické nebo logické operace nebo vyhodnotí regulární výrazy
 
@@ -428,15 +428,15 @@ Pár příkladů na spojování příkazů:
 
 - `strace`: ladění systému
 
-- `mtr`: vylepšení traceroute pro síťové ladění
+- [`mtr`](http://www.bitwizard.nl/mtr/): vylepšení traceroute pro síťové ladění
 
 - `cssh`: vizuální souběžný shell
 
 - `rsync`: synchronizuje soubory a adresáře přes SSH nebo v lokálním systému souborů
 
-- `wireshark` a `tshark`: zachytávání packetů a síťové ladění
+- [`wireshark`](https://wireshark.org/) a [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): zachytávání packetů a síťové ladění
 
-- `ngrep`: grep pro síťovou vrstvu
+- [`ngrep`](http://ngrep.sourceforge.net/): grep pro síťovou vrstvu
 
 - `host` a `dig`: DNS vyhledávání
 
@@ -460,9 +460,9 @@ Pár příkladů na spojování příkazů:
 
 - `id`: informace o identitě uživatele/skupiny
 
-- `sar`: historické systémové statistiky
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): historické systémové statistiky
 
-- `iftop` nebo `nethogs`: využití sítě pro proces nebo socket
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) nebo [`nethogs`](https://github.com/raboof/nethogs): využití sítě pro proces nebo socket
 
 - `ss`: statistika socketů
 
@@ -483,9 +483,9 @@ Pár příkladů na spojování příkazů:
 
 ## Pouze pro OS X
 
-Tyto věci jsou relevantní pouze pro MacOS.
+Tyto věci jsou relevantní pouze pro macOS.
 
-- Balíčky spravované pomocí `brew` (Homebrew) a/nebo `port` (MacPorts). Mohou být použity k instalaci mnoha předešlých příkazů na MacOS.
+- Balíčky spravované pomocí `brew` (Homebrew) a/nebo `port` (MacPorts). Mohou být použity k instalaci mnoha předešlých příkazů na macOS.
 
 - Kopírujte výstup jakéhokoli příkazu do desktopové aplikace pomocí `pbcopy` a vložte vstup z nějaké pomocí `pbpaste`.
 
@@ -495,12 +495,12 @@ Tyto věci jsou relevantní pouze pro MacOS.
 
 - Spotlight: Prohledávejte soubory s `mdfind` a vypište metadata (například EXIF informace fotografie) pomocí `mdls`.
 
-- Nezapomínejte, že MacOS je založen na BSD Unixu a mnoho příkazů (například `ps`, `ls`, `tail`, `awk`, `sed`) mají spoustu jemných odlišností od Linuxu, což je z velké části ovlivněno System V (System Five) stylem Unixu a GNU nástroji. Mnohokrát mmůžete rozdíl poznat podle manuálové stránky mající v nadpise "BSD General Commands Manual". V některých případech mohou být GNU verze instalovány také (třeba `gawk` a `gsed` pro GNU awk a sed). Pokud píšete multi-platformní Bashové scripty, vyhýbejte se takovým příkazům (například, zvažte Python či `perl`) nebo pečlivě testujte.
+- Nezapomínejte, že macOS je založen na BSD Unixu a mnoho příkazů (například `ps`, `ls`, `tail`, `awk`, `sed`) mají spoustu jemných odlišností od Linuxu, což je z velké části ovlivněno System V (System Five) stylem Unixu a GNU nástroji. Mnohokrát mmůžete rozdíl poznat podle manuálové stránky mající v nadpise "BSD General Commands Manual". V některých případech mohou být GNU verze instalovány také (třeba `gawk` a `gsed` pro GNU awk a sed). Pokud píšete multi-platformní Bashové scripty, vyhýbejte se takovým příkazům (například, zvažte Python či `perl`) nebo pečlivě testujte.
 
-- K získání informací o verzi vydání MacOS použijte `sw_vers`.
+- K získání informací o verzi vydání macOS použijte `sw_vers`.
 
 
-## Dalsi zdroje
+## Další zdroje
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): Organizovaný seznam shellových nástrojů a zdrojů.
 - [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Průvodce Mac OS příkazovou řádkou více do hloubky.
